@@ -1,30 +1,39 @@
 class Solution {
 public:
-    int numberOfArithmeticSlices(vector<int>& nums) {
-        if(nums.size() < 3)
-            return 0;
+    int numberOfArithmeticSlices(vector<int>& arr) {
+        int n = arr.size(); // extracting the size of the array
         
-        int cnt = 0, diff;
-        
-        for(int i = 0; i<nums.size()-2; ++i)
+        if(n < 3)  // if size is less than 3
         {
-			// storing diff of first 2 elements
-            diff = nums[i+1] - nums[i];
-			
-			// checking for consecutive elements with same difference.
-            for(int j = i+2; j<nums.size(); ++j)
-            {
-				// if we find the same diff of next 2 elements
-				// this means we  find consecutive elements
-				// increase the Count
-                if(nums[j] - nums[j-1] == diff)
-                    ++cnt;
-                else
-				// break as we need to cnt for consecutive diff elements
-                    break;
-            }
+            return 0; // then simply return 0
         }
-		// return cnt
-        return cnt;
+        
+        int ans = 0, curr = 0; // declaring variables
+        
+        // for the first part
+        // it stores what is the difference of last consecutive elements
+        int last_diff = arr[1] - arr[0];
+        
+        // start traversing from the array
+        for(int i = 1; i < n - 1; i++)
+        {
+            // for any index what is the current difference
+            int curr_diff = arr[i + 1] - arr[i];
+            
+            // if current difference is equal to the last difference
+            if(curr_diff == last_diff)
+            {
+                curr++; // increase current variable
+            }
+            else // but if not, give current difference to last difference
+            {
+                last_diff = curr_diff;
+                curr = 0; // and make curr to zero, as we have to do a new start
+            }
+            
+            ans = ans + curr; // add current to our answer
+        }
+        
+        return ans; // finally return the answer
     }
 };
