@@ -21,6 +21,8 @@ public:
         
     }
     */
+    
+    //approach 1
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
         int row = matrix.size();
         int col = matrix[0].size();
@@ -37,6 +39,6 @@ public:
                 colIndex--;
         }
         return 0;
-        
     }
+    
 };
