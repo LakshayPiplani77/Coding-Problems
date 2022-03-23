@@ -1,20 +1,15 @@
 class Solution {
 public:
     int brokenCalc(int startValue, int target) {
-        // res for counting number of operation
-        int res = 0;
-        
-        while(target > startValue)
-        {
-			// if target is odd we will make it even
-            if(target % 2)
-                ++target;
-			// if target is even divide by 2
-            else
-                target /= 2;
-            
-            ++res;
+      
+      if(startValue==target)
+            return 0;
+        if(startValue>target){
+            return startValue-target;
         }
-        return res  + startValue - target;
+        if(target%2==0)
+            return brokenCalc(startValue, target/2)+1;
+        else
+            return brokenCalc(startValue, (target+1)/2)+2;
     }
 };
