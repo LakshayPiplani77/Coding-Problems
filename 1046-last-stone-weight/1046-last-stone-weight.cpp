@@ -2,22 +2,24 @@ class Solution {
 public:
     int lastStoneWeight(vector<int>& stones) {
         
-        int num_stones = stones.size();
+       int n = stones.size();
         sort(stones.begin(),stones.end());
-        while (num_stones > 1){
-            if (stones[stones.size()-1] == stones[stones.size()-2]){
-                stones[stones.size()-1] = 0;
-                stones[stones.size()-2] = 0;
-                num_stones-=2;
-                sort(stones.begin(),stones.end());
-            } 
-          else {
-                stones[stones.size()-1] -= stones[stones.size()-2];
-                stones[stones.size()-2] = 0;
-                num_stones--;
-                sort(stones.begin(),stones.end());
+        while(n>1)
+        {
+            if(stones[n-1] == stones[n-2])
+            {
+                stones.pop_back();
+                stones.pop_back();
             }
+            else
+            {
+                stones.pop_back();
+                stones[n-2] = stones[n-1] - stones[n-2];
+            }
+            sort(stones.begin(),stones.end());
+            n = stones.size();
         }
-        return stones[stones.size()-1];
+         if(n==0)return 0;
+        return stones[0];
     }
 };
