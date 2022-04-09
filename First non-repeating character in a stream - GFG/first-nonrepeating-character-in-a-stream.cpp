@@ -7,7 +7,7 @@ using namespace std;
 class Solution {
 	public:
 		string FirstNonRepeating(string A){
-		    map<char, int> m;
+		    unordered_map<char, int> m;
 		    string ans = "";
 		    queue<char> q;
 		    
