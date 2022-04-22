@@ -36,7 +36,7 @@ private:
         }
             
         prev = root;
-            inorder(root->right);
+        inorder(root->right);
     }
 public:
     void recoverTree(TreeNode* root) {
