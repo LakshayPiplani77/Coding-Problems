@@ -10,10 +10,18 @@ class Solution{
         int GCD(int a,int b)
     {
         //Your code here
+        if(a>b)
+          return GCD(a-b,b);
+        else if(a < b)
+          return GCD(a,b-a);
+        else
+          return a;
+        /*
         if (b == 0)
             return a;
         
         return GCD(b, a%b);
+        */
     }
 };
 
