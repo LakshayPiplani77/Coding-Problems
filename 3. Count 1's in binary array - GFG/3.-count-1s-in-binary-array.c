@@ -23,7 +23,7 @@ int countOnes(int arr[], int N)
         }
         else
         {
-        if(mid == N-1 || arr[mid+1] == 0)
+        if(arr[mid+1] == 0)
         return mid+1;
         else
         start = mid+1;
