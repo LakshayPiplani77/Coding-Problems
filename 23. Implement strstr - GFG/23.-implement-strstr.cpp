@@ -26,8 +26,10 @@ int main()
 int strstr(string s, string x)
 {
      //Your code here
-     int p = -1;
-     p = s.find(x);
-     return p;
+    //  int p = -1;
+    //  p = s.find(x);
+    //  return p;
+    string strstr = s;
+    return strstr.find(x);
      
 }
