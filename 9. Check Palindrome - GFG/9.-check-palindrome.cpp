@@ -8,21 +8,24 @@ using namespace std;
 
 class Solution{
   public:
-  bool helper(string n, int start,int end)
+  int rev = 0,rem;
+  int reverse(int n)
   {
-      if(start >= end)
-      return 1;
-      else
-      return (n[start] == n[end] && helper(n,start + 1,end-1)); 
+      if(n)
+      {
+          rem = n%10;
+          rev = rev*10 + rem;
+          reverse(n/10);
+      }
+      return rev;
   }
     bool isPalin(int N)
     {
         //Your code here
         //You may use a helper function if you like
-        string n = to_string(N);
-        int start = 0,end = n.length()-1;
-        return helper(n,start,end);
-    
+        if(N < 10)
+        return 1;
+        return N == reverse(N);
     }
 };
 
