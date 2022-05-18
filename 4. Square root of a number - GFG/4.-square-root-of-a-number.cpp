@@ -12,7 +12,7 @@ class Solution{
     long long int floorSqrt(long long int x) 
     {
         // Your code goes here
-        long long int start = 1, end = x,ans = -1;
+        long long int start = 1, end = x;
         long long int mid = start + (end-start)/2;
         while(start <= end)
         {
@@ -22,11 +22,10 @@ class Solution{
             end = mid-1;
             else if(mid*mid < x) {
             start = mid + 1;
-            ans = mid;
             }
             mid = start + (end-start)/2;
         }
-        return ans;
+        return end;
     }
 };
 
