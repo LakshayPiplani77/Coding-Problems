@@ -1,0 +1,61 @@
+// { Driver Code Starts
+//Initial Template for C++
+
+#include<iostream>
+using namespace std;
+
+
+ // } Driver Code Ends
+//User function Template for C++
+
+class Solution{
+    public:
+    //Complete this function
+ int gcdEuclid(int a,int b)
+{
+  while(a!=b)
+  {
+    if(a>b)
+    {
+      a = a-b;
+    }
+    else{
+      b = b-a;
+    }
+  }
+  return a;
+}
+    int modInverse(int a, int m)
+    {
+        //Your code here
+        if(gcdEuclid(a,m) == 1)
+        {
+            for(int i = 0;i<m;i++)
+            {
+                if((a*i)%m == 1)
+                return i;
+            }
+        }
+        return -1;
+    }
+};
+
+// { Driver Code Starts.
+
+int main()
+{
+	int T;
+	
+	//taking testcases
+	cin>>T;
+	while(T--){
+		int a,m;
+		
+		//taking input a and m
+		cin>>a>>m;
+		Solution ob;
+		//calling function modInverse()
+		cout << ob.modInverse(a, m)<<endl;
+	}
+    return 0;
+}  // } Driver Code Ends
