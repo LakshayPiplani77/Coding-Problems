@@ -10,16 +10,26 @@ using namespace std;
 
 class Solution{
     public:
-        bool isPrime(int N)
+       bool isPrime(int N)
     {
         //Your code here
-        for(int i = 2;i<N;i++)
+        for(int i = 2;i*i<= N;i++)
         {
             if(N%i == 0)
             return false;
         }
         return true;
     }
+    //     bool isPrime(int N)
+    // {
+    //     //Your code here
+    //     for(int i = 2;i<N;i++)
+    //     {
+    //         if(N%i == 0)
+    //         return false;
+    //     }
+    //     return true;
+    // }
 
 };
 
