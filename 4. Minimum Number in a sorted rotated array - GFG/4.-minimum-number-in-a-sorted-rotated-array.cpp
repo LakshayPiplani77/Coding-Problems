@@ -11,14 +11,25 @@ class Solution
     public:
     //Function to find the minimum element in sorted and rotated array.
     int minNumber(int arr[], int low, int high)
-    {
-        for(int i = 1;i<(high-low+1);i++)
+   {
+       int mid;
+       while(low<=high)
         {
-            if(arr[i] < arr[i-1])
-            return arr[i];
+            mid=low+(high-low)/2;
+            
+            if(arr[mid]>arr[high])
+              {
+                  low=mid+1;
+              }
+            else if(arr[mid]<arr[low])
+             {
+                 high=mid;
+             }
+             else
+               return arr[low];
         }
-        return arr[0];
-    }
+                 
+   }
 };
 
 // { Driver Code Starts.
