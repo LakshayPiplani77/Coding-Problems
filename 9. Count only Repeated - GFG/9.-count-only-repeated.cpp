@@ -15,7 +15,7 @@ class Solution
     //Function to find repeated element and its frequency.
     pair<int, int> findRepeating(int *arr, int n){
         //code here
-        pair<int,int> p,pt;
+        pair<int,int> p;
         unordered_map<int,int> mp;
         for(int i = 0;i<n;i++)
         {
@@ -30,9 +30,7 @@ class Solution
                return p;
            }
        }
-       pt.first = -1;
-       pt.second = -1;
-       return pt;
+      return {-1,-1};
         
     }
 };
