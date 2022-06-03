@@ -7,17 +7,16 @@
 
 
 def trim(str):
-    return (str.strip()) 
+   return(str.strip())    
 
 def exists(str, x):
-    return (str.find(x,2))   
+   return(str.find(x,2))      
 
 def titleIt(str):
-    return (str.title())   
+   return(str.title())    
 
 def casesSwap(str):
-    return (str.swapcase())   
-
+   return(str.swapcase())
 
 #{ 
 #Driver Code Starts.
