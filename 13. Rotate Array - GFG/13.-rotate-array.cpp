@@ -20,6 +20,7 @@ class Solution{
     }
     void rotateArr(int arr[], int d, int n){
         // code here
+        if(d>n)
         d = d%n;
         reverse(arr,0,d-1);
         reverse(arr,d,n-1);
