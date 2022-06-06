@@ -15,14 +15,13 @@ class Solution{
     int countVowels(string str){
         
        //Your code here
-       int count = 0;
-       unordered_set<char> st (str.begin(),str.end());
-       for(char x: st)
+       unordered_set<int> s;
+       for(int i = 0;i<str.length();i++)
        {
-           if(x == 'a' || x == 'e' || x == 'i' || x == 'o' || x == 'u')
-           count++;
+           if(str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u')
+           s.insert(str[i]);
        }
-        return count;
+        return s.size();
     }
 };
 
