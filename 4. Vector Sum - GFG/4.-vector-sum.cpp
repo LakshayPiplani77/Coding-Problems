@@ -20,7 +20,14 @@ int SumMe(vector<int> arr, int n){
     //     sum += arr[i];
     // }
     // return sum;
-    return accumulate(arr.begin(), arr.end(), 0);
+    
+    // return accumulate(arr.begin(), arr.end(), 0);
+    int sum = 0;
+    for(auto i: arr)
+    {
+        sum += i;
+    }
+    return sum;
     
 }
 
