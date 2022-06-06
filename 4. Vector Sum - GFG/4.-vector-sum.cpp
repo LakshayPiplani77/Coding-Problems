@@ -15,11 +15,12 @@ int SumMe(vector<int> arr, int n){
 
 	 // Your code here
     // Use accumulate function
-    int sum = 0;
-    for(int i = 0;i<n;i++){
-        sum += arr[i];
-    }
-    return sum;
+    // int sum = 0;
+    // for(int i = 0;i<n;i++){
+    //     sum += arr[i];
+    // }
+    // return sum;
+    return accumulate(arr.begin(), arr.end(), 0);
     
 }
 
