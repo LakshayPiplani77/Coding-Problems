@@ -10,17 +10,17 @@ using namespace std;
 class Solution
 {
     public:
-int myjosephus(int n, int k)
-{ if(n==1){
-      return 0;
-  }
-  else{
-  return ((myjosephus(n-1,k))+k)%n;
-  }
-}
-int josephus(int n,int k){
-   return myjosephus(n,k)+1;
-}
+ int josephus(int n, int k)
+    {
+       //Your code here
+       if(n == 1)
+       return 1;
+       int x =  (josephus(n-1,k) + k)%(n);
+       if(x == 0)
+       return n;
+       else
+       return x;
+    }
 };
 
 
