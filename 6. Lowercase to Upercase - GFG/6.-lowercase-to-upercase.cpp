@@ -12,7 +12,11 @@ using namespace std;
 class Solution{
   public:
     string caseConversion(string str){
-        transform(str.begin(), str.end(),str.begin(), ::toupper);
+        // transform(str.begin(), str.end(),str.begin(), ::toupper);
+        // return str;
+        for(auto &i: str){
+            i = toupper(i);
+        }
         return str;
     }
 };
