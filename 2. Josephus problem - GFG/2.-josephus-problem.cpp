@@ -10,17 +10,16 @@ using namespace std;
 class Solution
 {
     public:
-    int helper(int n,int k)
-    {
-        if(n==1)
-         return 0;
-        return (helper(n-1,k) + k)%n;
-    }
     int josephus(int n, int k)
     {
        //Your code here
-       return helper(n,k)+1;
-     
+       if(n==1)
+       return 1;
+       int r =  (josephus(n-1,k)+(k))%(n);
+       if(r == 0)
+       return n;
+       else
+       return r;
     }
 };
 
