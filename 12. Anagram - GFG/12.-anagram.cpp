@@ -7,16 +7,25 @@ using namespace std;
 class Solution
 {
     public:
+    const int CHAR = 256;
     //Function is to check whether two strings are anagram of each other or not.
     bool isAnagram(string a, string b){
         
         // Your code here
-        if(a.length() != b.length())
-           return false;
-        sort(a.begin(),a.end());
-        sort(b.begin(),b.end());
-        return a == b;
-        
+        if(a.length () != b.length())
+            return false;
+        int count[CHAR] = {0};
+        for(int i = 0;i<a.length();i++)
+        {
+            count[a[i]]++;
+            count[b[i]]--;
+        }
+        for(int i = 0;i<CHAR;i++)
+        {
+            if(count[i] != 0)
+              return false;
+        }
+        return true;
     }
 
 };
