@@ -14,7 +14,7 @@ class Solution{
     int lengthString(string str)
     {
         //Your code here
-      return str.length();
+      return str.size();
     }
 };
 
