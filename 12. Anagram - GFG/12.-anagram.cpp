@@ -12,20 +12,11 @@ class Solution
         
         // Your code here
         if(a.length() != b.length())
-             return false;
-        unordered_map<char,int> mpa;
-        unordered_map<char,int> mpb;
-        for(int i = 0;i<a.length();i++)
-        {
-            mpa[a[i]]++;
-        }
-        for(int i = 0;i<b.length();i++)
-        {
-            mpb[b[i]]++;
-        }
-        if(mpa == mpb)
-        return true;
-    return false;
+           return false;
+        sort(a.begin(),a.end());
+        sort(b.begin(),b.end());
+        return a == b;
+        
     }
 
 };
