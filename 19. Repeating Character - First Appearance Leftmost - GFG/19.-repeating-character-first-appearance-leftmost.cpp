@@ -16,17 +16,17 @@ class Solution
     int repeatedCharacter (string s) 
     { 
         //Your code here
-        int count[256] = {0};
-        for(int i = 0;i<s.length();i++)
+        bool visited[256];
+        int res = -1;
+        fill(visited,visited+256,false);
+        for(int i = s.length()-1;i>=0;i--)
         {
-            count[s[i]]++;
+            if(visited[s[i]])
+               res = i;
+            else
+               visited[s[i]] = true;
         }
-        for(int i = 0;i<s.length();i++)
-        {
-            if(count[s[i]] > 1)
-                return i;
-        }
-        return -1;
+        return res;
     } 
 };
 
