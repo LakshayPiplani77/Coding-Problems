@@ -16,13 +16,15 @@ class Solution
     int repeatedCharacter (string s) 
     { 
         //Your code here
-        for(int i = 0 ;i<s.length();i++)
+        int count[256] = {0};
+        for(int i = 0;i<s.length();i++)
         {
-            for(int j = i+1;j<s.length();j++)
-            {
-                if(s[i] == s[j])
-                   return i;
-            }
+            count[s[i]]++;
+        }
+        for(int i = 0;i<s.length();i++)
+        {
+            if(count[s[i]] > 1)
+                return i;
         }
         return -1;
     } 
