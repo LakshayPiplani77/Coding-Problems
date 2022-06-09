@@ -64,23 +64,26 @@ int maximum(Node *head)
     Node* temp = head;
     while(temp != NULL)
     {
-    if(temp->data > maxi)
-       maxi = temp->data;
-     temp = temp->next;
+        if(maxi < temp->data)
+            maxi = temp->data;
+        temp = temp->next;
+           
     }
     return maxi;
 }
 
 int minimum(Node *head)
 {
-    int mini = INT_MAX;
     //Your code here
-     Node* temp = head;
-     while(temp != NULL)
-     {
-         if(temp->data < mini)
+    int mini = INT_MAX;
+    Node* temp = head;
+    while(temp != NULL)
+    {
+        if(mini > temp->data)
+        {
             mini = temp->data;
-        temp = temp->next;
-     }
-     return mini;
+        }
+    temp = temp->next;
+    }
+    return mini;
 }
