@@ -60,12 +60,6 @@ int sumOfElements(Node *head)
 {
    //Your code here
    int sum = 0;
-   if(head == NULL){
-       return 0;
-   }
-   if(head->next == NULL){
-       return head->data;
-   }
    Node* temp = head;
    while(temp != NULL)
    {
@@ -74,3 +68,4 @@ int sumOfElements(Node *head)
    }
    return sum;
 }
+
