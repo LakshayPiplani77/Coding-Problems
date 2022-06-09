@@ -61,11 +61,9 @@ bool searchLinkedList(Node *head, int x)
 {
     //Your code here
     Node* temp = head;
-    while(temp != NULL)
-    {
-        if(temp->data == x)
-           return 1;
-        temp = temp->next;
-    }
-    return 0;
+    if(head == NULL)
+      return 0;
+    if(head->data == x)
+      return 1;
+   return searchLinkedList(head->next,x);
 }
