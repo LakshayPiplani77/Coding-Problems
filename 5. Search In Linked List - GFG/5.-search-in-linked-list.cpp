@@ -60,10 +60,12 @@ struct Node
 bool searchLinkedList(Node *head, int x)
 {
     //Your code here
-    if(head == NULL)
-       return 0;
-    if(head->data == x)
-       return 1;
-    searchLinkedList(head->next,x);
-    
+    Node* temp = head;
+    while(temp != NULL)
+    {
+        if(temp->data == x)
+           return 1;
+        temp = temp->next;
+    }
+    return 0;
 }
