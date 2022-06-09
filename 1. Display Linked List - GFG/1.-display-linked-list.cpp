@@ -61,18 +61,16 @@ struct Node
 };
 
 */
-#include<vector>
+
 vector<int> displayList(Node *head)
 {
     //Your code here
-    vector<int> listOutput;
-    
+    vector<int> ans;
     Node* temp = head;
-    while(temp!= NULL)
+    while(temp != NULL)
     {
-     listOutput.push_back(temp->data);
-     temp = temp->next;
+        ans.push_back(temp->data);
+        temp = temp->next;
     }
-    return listOutput;
+    return ans;
 }
-
