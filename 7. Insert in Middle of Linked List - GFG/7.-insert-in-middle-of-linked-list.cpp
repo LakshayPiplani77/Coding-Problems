@@ -65,10 +65,10 @@ struct Node {
 Node* findMiddle(Node* head)
 {
 Node* slow = head;
-Node* fast = head;
+Node* fast = head->next;
 if(head== NULL || head->next==NULL)
 return head;
-while(fast->next != NULL && fast->next->next != NULL)
+while(fast != NULL && fast->next != NULL)
 {
     slow = slow->next;
     fast = fast->next->next;
