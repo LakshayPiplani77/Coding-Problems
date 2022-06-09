@@ -50,12 +50,11 @@ struct Node
 Node * deleteHead(Node *head)
 {
     //Your code here
-    if(head == NULL)
-    return NULL;
     Node* temp = head;
     head = head->next;
-    delete temp;
+    delete(temp);
     return head;
+    
 }
 
 
