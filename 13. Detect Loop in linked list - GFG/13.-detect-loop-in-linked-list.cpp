@@ -49,14 +49,12 @@ class Solution
     bool detectLoop(Node* head)
     {
         // your code here
-        Node* temp = head;
-        unordered_map<Node*,bool> mp;
-        while(temp != NULL)
+        unordered_set<Node*> s;
+        for(Node* curr = head;curr != NULL;curr = curr->next)
         {
-            if(mp[temp] == true)
-               return true;
-        mp[temp] = true;
-        temp = temp->next;
+            if(s.find(curr) != s.end())
+                return true;
+            s.insert(curr);
         }
         return false;
     }
