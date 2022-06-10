@@ -28,7 +28,7 @@ struct Node
 }
 
 */
-#include<vector>
+
 class Solution
 {
     public:
@@ -37,18 +37,16 @@ class Solution
     {
         // code here
         // return head of reversed list
-        if(head == NULL || head->next == NULL)
-             return head;
-        vector<int> arr;
-        for(Node* curr = head;curr != NULL;curr = curr->next)
+        Node* curr = head;
+        Node* prev = NULL;
+        while(curr != NULL)
         {
-            arr.push_back(curr->data);
+            Node* next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
         }
-        for(Node* curr = head;curr != NULL;curr = curr->next){
-            curr->data = arr.back();
-            arr.pop_back();
-        }
-        return head;
+        return prev;
     }
     
 };
