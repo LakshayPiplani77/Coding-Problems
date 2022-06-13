@@ -9,20 +9,12 @@ class Solution
     //Function to find transpose of a matrix.
     void transpose(vector<vector<int> >& matrix, int n)
     { 
-        // code here
-        int temp[n][n];
+        // code here 
         for(int i = 0;i<n;i++)
         {
-            for(int j = 0;j<n;j++)
+            for(int j = i+1;j<n;j++)
             {
-               temp[i][j] = matrix[j][i];
-            }
-        }
-         for(int i = 0;i<n;i++)
-        {
-            for(int j = 0;j<n;j++)
-            {
-               matrix[i][j] = temp[i][j];
+                swap(matrix[i][j],matrix[j][i]);
             }
         }
     }
