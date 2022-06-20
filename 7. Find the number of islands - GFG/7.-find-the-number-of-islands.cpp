@@ -4,7 +4,7 @@ using namespace std;
 
  // } Driver Code Ends
 class Solution {
-      void dfs(int i,int j,int n,int m,vector<vector<int>>&vis,vector<vector<char>> &grid){
+      void dfs(int i,int j,int n,int m,int vis[501][501],vector<vector<char>> &grid){
         if(i<0 || j<0)
             return;
         if(i>=n || j>=m)
@@ -29,7 +29,14 @@ class Solution {
         int n = grid.size();
         int m = grid[0].size();
         int count=0;
-        vector<vector<int>>vis(n , vector<int>(m , 0));
+       int vis[501][501];
+       for(int i = 0;i<n;i++)
+       {
+           for(int j = 0;j<m;j++)
+           {
+               vis[i][j] = 0;
+           }
+       }
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
                 if(!vis[i][j] && grid[i][j]=='1'){
