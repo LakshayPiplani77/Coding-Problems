@@ -9,35 +9,15 @@
  * };
  */
 class Solution {
-private:
-    int length(ListNode* head)
-    {
-        if(head == NULL)
-            return 0;
-        if(head->next == NULL)
-            return 1;
-        int len = 0;
-        ListNode* temp = head;
-        while(temp)
-        {
-            len++;
-            temp = temp->next;
-        }
-        return len;
-    }
 public:
     int getDecimalValue(ListNode* head) {
-        int value = 0;
+        int ans = 0;
         ListNode* temp = head;
-        int len = length(head);
-        int i = 1;
-        while(temp!= NULL && i<=len)
-        {
-            if(temp->val == 1)
-            value += pow(2,len-i);
+        while(temp != NULL){
+            ans *= 2;
+            ans += temp->val;
             temp = temp->next;
-            i++;
         }
-        return value;
+        return ans;
     }
 };
