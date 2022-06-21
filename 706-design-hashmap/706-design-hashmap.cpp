@@ -19,6 +19,7 @@ public:
         {
             if(it->first == key)
                 return it;
+            it++;
         }
         return it;
         
