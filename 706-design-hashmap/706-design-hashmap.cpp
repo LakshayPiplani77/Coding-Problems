@@ -1,24 +1,23 @@
 class MyHashMap {
-    map<int,int> mp;
 public:
+    vector<int> m;
+    int size;
     MyHashMap() {
-        
+        size = 1e6+1;
+        m.resize(size);
+        fill(m.begin(),m.end(),-1);
     }
     
     void put(int key, int value) {
-        mp[key] = value;
+        m[key] = value;
     }
     
     int get(int key) {
-        map<int, int>::iterator it;
-        it = mp.find(key);
-        if(it == mp.end())
-            return -1;
-        return it->second;
+        return m[key];
     }
     
     void remove(int key) {
-        mp.erase(key);
+        m[key] = -1;
     }
 };
 
