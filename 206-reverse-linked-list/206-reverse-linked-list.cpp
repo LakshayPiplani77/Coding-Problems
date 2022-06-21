@@ -9,16 +9,16 @@
  * };
  */
 class Solution {
-    public:
-       ListNode* helper(ListNode *pre, ListNode *root){
-            if(root == NULL)
-                return pre;
-            ListNode *t = root->next;
-            root->next = pre;
-            return helper(root,t);            
-        }
-    
-    ListNode* reverseList(ListNode* head) {
-        return helper(NULL, head);
+public:
+     ListNode* reverseList(ListNode* head) {
+        
+   if (head == NULL || head->next == NULL) return head;
+        
+        ListNode* newHead  = reverseList(head->next);
+        
+        head->next->next = head;
+        head->next = NULL;
+        
+        return newHead ;
     }
 };
