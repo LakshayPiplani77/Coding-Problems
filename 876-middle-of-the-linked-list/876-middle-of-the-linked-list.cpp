@@ -9,32 +9,14 @@
  * };
  */
 class Solution {
-private: 
-    int length(ListNode* head)
-    {
-        int len = 0;
-        if(head == NULL)
-            return 0;
-        if(head->next == NULL)
-            return 1;
-        ListNode* temp = head;
-        while(temp != NULL)
-        {
-            len++;
-            temp = temp->next;
-        }
-        return len;
-    }
 public:
     ListNode* middleNode(ListNode* head) {
-        int len = length(head);
-        ListNode* temp = head;
-        int half = len/2;
-        while(half>0)
-        {
-            temp = temp->next;
-            half--;
-        }
-        return temp;
+    ListNode *slow = head, *fast = head;
+    while(fast!= NULL && fast->next != NULL)
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    return slow;
     }
 };
