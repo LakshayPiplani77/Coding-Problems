@@ -1,24 +1,22 @@
 class MyHashSet {
 public:
-    set<int> st;
+    vector<int> m;
+    int size;
     MyHashSet() {
-        //Nothing to do....
+        size = 1e6+1;
+        m.resize(size);
     }
     
     void add(int key) {
-        st.insert(key);
+        m[key] = 1;
     }
     
     void remove(int key) {
-        if(st.find(key) != st.end())
-            st.erase(key);
-        return;
+        m[key] = 0;
     }
     
     bool contains(int key) {
-        if(st.find(key) != st.end())
-            return true;
-        return false;
+        return m[key];
     }
 };
 
