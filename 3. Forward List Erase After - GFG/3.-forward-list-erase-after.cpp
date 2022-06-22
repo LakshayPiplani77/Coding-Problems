@@ -17,7 +17,7 @@ forward_list<int> EraseMe (forward_list<int> fwdlist){
     // Your code here
    // Use erase_after function
    auto it = fwdlist.begin();
-   fwdlist.erase_after(fwdlist.begin());
+   fwdlist.erase_after(it);
    return fwdlist;
 }
 
