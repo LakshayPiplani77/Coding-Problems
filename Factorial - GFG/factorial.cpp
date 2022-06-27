@@ -4,24 +4,18 @@ using namespace std;
 
  // } Driver Code Ends
 class Solution{
-private:
-    long long int f(int n,vector<long long int> & dp)
-    {
-      if(n<=1)
-      return n;
-      if(dp[n] != -1)
-      return dp[n];
-      return dp[n] = n*f(n-1,dp);
-        
-    }
 public:
     long long int factorial(int N){
         //code here
-        if( N==0 || N == 1)
+        if(N == 0 || N == 1)
         return 1;
-        vector<long long int> dp(N+1,-1);
-        return f(N,dp);
-        
+        long long int dp[N+1];
+        dp[0] = 1;
+        dp[1] = 1;
+        for(long long int i = 2;i<=N;i++){
+            dp[i] = i*dp[i-1];
+        }
+        return dp[N];
     }
 };
 
