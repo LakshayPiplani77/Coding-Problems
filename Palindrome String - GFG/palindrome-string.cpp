@@ -7,20 +7,30 @@ using namespace std;
  // } Driver Code Ends
 //User function template for C++
 class Solution{
-private:
-int solve(int i, string &s)
-{
-    if(i>= s.size()/2)
-     return 1;
-    if(s[i] != s[s.size()-i-1])
-      return 0;
-    return solve(i+1,s);
-}
 public:	
+	string reverse(int len,string S)
+	{
+	    int start = 0;
+	    int end = len-1;
+	    while(start < end)
+	    {
+	        swap(S[start],S[end]);
+	        start++;
+	        end--;
+	    }
+	    return S;
+	}
+	
 	int isPalindrome(string S)
 	{
 	    // Your code goes here
-	    return solve(0,S);
+	    int len = S.size();
+	    string t = reverse(len,S);
+	    if(t == S)
+	    return 1;
+	    else
+	    return 0;
+	    
 	}
 
 };
