@@ -8,29 +8,20 @@ using namespace std;
 //User function template for C++
 class Solution{
 public:	
-	string reverse(int len,string S)
-	{
-	    int start = 0;
-	    int end = len-1;
-	    while(start < end)
-	    {
-	        swap(S[start],S[end]);
-	        start++;
-	        end--;
-	    }
-	    return S;
-	}
+	
 	
 	int isPalindrome(string S)
 	{
 	    // Your code goes here
-	    int len = S.size();
-	    string t = reverse(len,S);
-	    if(t == S)
+	    int n = S.size();
+	    int i = 0;
+	    while(i <= S.length()/2)
+	    {
+	        if(S[i] != S[n-i-1])
+	        return 0;
+	        i++;
+	    }
 	    return 1;
-	    else
-	    return 0;
-	    
 	}
 
 };
