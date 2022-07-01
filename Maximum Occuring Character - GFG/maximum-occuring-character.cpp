@@ -14,13 +14,13 @@ class Solution
     char getMaxOccuringChar(string str)
     {
         // Your code here
-        int freq[256] = {0};
+        int freq[26] = {0};
         int res,maxi = 0;
         for(int i = 0;i<str.size();i++)
         {
             freq[str[i] - 'a']++;
         }
-        for(int i = 0;i<255;i++)
+        for(int i = 0;i<25;i++)
         {
             if(freq[i] > maxi)
             {
