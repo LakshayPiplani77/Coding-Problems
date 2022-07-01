@@ -2,6 +2,7 @@ class Solution {
 public:
     string removeDuplicates(string s) {
         stack<char> st;
+        stack<char> rev;
         st.push(s[0]);
         string ans = "";
         for(int i = 1;i<s.length();i++)
@@ -15,10 +16,14 @@ public:
         }
         while(!st.empty())
         {
-            ans.push_back(st.top());
+            rev.push(st.top());
             st.pop();
         }
-        reverse(ans.begin(),ans.end());
+        while(!rev.empty())
+        {
+            ans += rev.top();
+            rev.pop();
+        }
         return ans;
     }
 };
