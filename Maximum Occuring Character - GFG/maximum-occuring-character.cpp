@@ -14,21 +14,21 @@ class Solution
     char getMaxOccuringChar(string str)
     {
         // Your code here
-        int freq[26] = {0};
-        int res,maxi = 0;
+        map<char,int> mp;
         for(int i = 0;i<str.size();i++)
         {
-            freq[str[i] - 'a']++;
+            mp[str[i]]++;
         }
-        for(int i = 0;i<25;i++)
+        int maxi = INT_MIN;
+        char ans;
+        for(auto i: mp)
         {
-            if(freq[i] > maxi)
-            {
-                res = i;
-                maxi = freq[i];
+            if(i.second > maxi){
+            maxi = i.second;
+            ans = i.first;
             }
         }
-        return res + 'a';
+        return ans;
     }
 
 };
