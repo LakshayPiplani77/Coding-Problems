@@ -17,8 +17,7 @@ public:
         {
             if(arr[i] == 0)
             countZeroes++;
-            if(arr[i] == 1)
-            countOnes++;
+            
         }
        for(int i = 0;i<countZeroes;i++)
        {
