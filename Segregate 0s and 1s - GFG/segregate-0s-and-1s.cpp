@@ -11,22 +11,20 @@ class Solution{
 public:
     void segregate0and1(int arr[], int n) {
         // code here
-        int countZeroes = 0;
-        int countOnes = 0;
-        for(int i = 0;i<n;i++)
+        int start = 0,end = n-1;
+        while(start <= end)
         {
-            if(arr[i] == 0)
-            countZeroes++;
-            
+            if(arr[start] == 0)
+            start++;
+            else if(arr[end] == 1)
+            end--;
+            else
+            {
+                swap(arr[start],arr[end]);
+                start++;
+                end--;
+            }
         }
-       for(int i = 0;i<countZeroes;i++)
-       {
-           arr[i] = 0;
-       }
-       for(int i = countZeroes;i<n;i++)
-       {
-           arr[i] = 1;
-       }
     }
 };
 
