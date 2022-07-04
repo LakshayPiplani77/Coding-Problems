@@ -30,13 +30,7 @@ private:
 public:
     int longestPalindromeSubseq(string s) {
         string t = s;
-        int start = 0,end = s.length()-1;
-        while(start <= end)
-        {
-         swap(s[start],s[end]);
-            start++;
-            end--;
-        }
+        reverse(t.begin(),t.end());
         
         return lcs(s,t);
     }
