@@ -1,5 +1,5 @@
 # Rotate Array
-##  Easy 
+## Easy 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an unsorted array <strong>arr[]</strong> of size <strong>N.</strong>&nbsp;Rotate the array to the left (counter-clockwise direction) by <strong>D</strong> steps, where&nbsp;<strong>D</strong>&nbsp;is a positive integer.&nbsp;</span></p>
 
