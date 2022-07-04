@@ -22,9 +22,9 @@ class Solution{
     void rotateArr(int arr[], int d, int n){
         // code here
         d = d%n;
-        reverse(arr,0,d-1);
-        reverse(arr,d,n-1);
-        reverse(arr,0,n-1);
+        reverse(arr,0,d-1); //first reverse first d elements
+        reverse(arr,d,n-1); //second reverse next elements from d to n-1
+        reverse(arr,0,n-1); //reverse all elements again to get result;
     }
 };
 
