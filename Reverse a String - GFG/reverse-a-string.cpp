@@ -27,15 +27,19 @@ int main() {
 // } Driver Code Ends
 
 
-//User function Template for C++
+//User function Template for C+
+void reverse(string &str,int i,int j)
+{
+    if(i>j)
+    return;
+    swap(str[i],str[j]);
+    i++;
+    j--;
+    reverse(str,i,j);
+}
 
 string reverseWord(string str){
-    int start = 0,end = str.size()-1;
-    while(start < end)
-    {
-        swap(str[start],str[end]);
-        start++;
-        end--;
-    }
-    return str;
+  //Your code here
+ reverse(str,0,str.length()-1);
+ return str;
 }
