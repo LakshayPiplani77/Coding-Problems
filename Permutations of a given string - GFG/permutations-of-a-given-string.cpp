@@ -6,11 +6,11 @@ using namespace std;
 class Solution
 {
     private:
-    void findpermutations(int index, string&s, vector<string>&ans)
+    void findpermutations(int index, string&s, set<string>&ans)
 {
     if(index==s.size())
     {
-        ans.push_back(s);
+        ans.insert(s);
         return;
     }
     for(int i=index;i<s.size();i++)
@@ -24,11 +24,17 @@ class Solution
 		vector<string>find_permutation(string S)
 		{
 		    // Code here there
+		    set<string> st;
     vector<string>ans;
     int index=0;
-    findpermutations(index,S,ans);
+    findpermutations(index,S,st);
+    for(auto i: st)
+    {
+        ans.push_back(i);
+    }
     sort(ans.begin(),ans.end());
-      ans.erase(unique(ans.begin(), ans.end()), ans.end());
+    //   ans.erase(unique(ans.begin(), ans.end()), ans.end());
+    // return ans;
     return ans;
 		}
 };
