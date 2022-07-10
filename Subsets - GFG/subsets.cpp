@@ -11,27 +11,30 @@ using namespace std;
 class Solution
 {
     private:
-    void solve(vector<int> v,vector<int> &A,vector<vector<int>> &ans,int index)
+    void f(int ind,vector<int> &store,vector<vector<int>> &ans,vector<int> &arr,int n)
+{
+    if(ind == n)
     {
-        if(index >= A.size())
-        {
-            ans.push_back(v);
-            return;
-        }
-        v.push_back(A[index]);
-        solve(v,A,ans,index+1);
-        v.pop_back();
-        solve(v,A,ans,index+1);
+        ans.push_back(store);
+        return;
     }
+    //take
+    store.push_back(arr[ind]);
+    f(ind+1,store,ans,arr,n);
+    //not take
+    store.pop_back();
+    f(ind+1,store,ans,arr,n);
+}
     public:
     vector<vector<int> > subsets(vector<int>& A)
     {
         //code here
-        vector<vector<int>> ans;
-        vector<int> v;
-        solve(v,A,ans,0);
-        sort(ans.begin(),ans.end());
-        return ans;
+        int n = A.size();
+    vector<vector<int>> ans;
+    vector<int> store;
+    f(0,store,ans,A,n);
+    sort(ans.begin(),ans.end());
+    return ans;
     }
 };
 
