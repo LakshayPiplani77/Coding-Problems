@@ -15,7 +15,7 @@ class Solution
     private:
     void solve(int a[],int n,string ans,int index,vector<string> &result,string mapping[])
     {
-        if(index >= n)
+        if(index == n)
         {
             result.push_back(ans);
             return;
