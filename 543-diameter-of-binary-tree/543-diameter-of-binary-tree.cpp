@@ -9,6 +9,8 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+//this is a brute force approach O(n*n)
 class Solution {
 private:
     int height(TreeNode* root)
@@ -24,7 +26,7 @@ public:
     int diameterOfBinaryTree(TreeNode* root) {
         if(root == NULL)
             return 0;
-        int maxi = INT_MIN;
+      
         int lh = height(root->left);
         int rh = height(root->right);
     
