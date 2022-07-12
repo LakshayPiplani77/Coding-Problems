@@ -30,7 +30,6 @@ public:
                 if(node->right)
                     q.push(node->right);
                 level.push_back(node->val);
-                
             }
             ans.push_back(level);
         }
