@@ -9,27 +9,22 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-
-//this is a brute force approach O(n*n)
 class Solution {
 private:
-    int height(TreeNode* root)
+    int helper(TreeNode* root,int &maxi)
     {
         if(root == NULL)
             return 0;
-        
-        int l = height(root->left);
-        int r = height(root->right);
-        return 1 + max(l,r);
+        int lh = helper(root->left,maxi);
+        int rh = helper(root->right,maxi);
+        maxi = max(maxi,(lh+rh));
+        return 1 + max(lh,rh);
     }
 public:
     int diameterOfBinaryTree(TreeNode* root) {
-        if(root == NULL)
-            return 0;
-      
-        int lh = height(root->left);
-        int rh = height(root->right);
-    
-        return max((lh+rh),max(diameterOfBinaryTree(root->left),diameterOfBinaryTree(root->right)));
+        int maxi = 0;
+        helper(root,maxi);
+        return maxi;
+        
     }
 };
