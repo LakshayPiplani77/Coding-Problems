@@ -1,7 +1,7 @@
 class Solution {
 public:
     int countBalls(int lowLimit, int highLimit) {
-        map<int,int> mp;
+        unordered_map<int,int> mp;
         for(int i = lowLimit;i<=highLimit;i++)
         {
            int temp = i;
