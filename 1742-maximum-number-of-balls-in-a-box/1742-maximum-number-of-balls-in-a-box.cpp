@@ -6,6 +6,9 @@ public:
         {
            int temp = i;
             int sum = 0;
+            if(i<=9)
+                mp[i]++;
+            else{
             while(temp != 0)
             {
                 int digit = temp%10;
@@ -13,6 +16,7 @@ public:
                 temp = temp/10;
             }
             mp[sum]++;
+            }
         }
         int ans = -1e9;
         for(auto i: mp)
