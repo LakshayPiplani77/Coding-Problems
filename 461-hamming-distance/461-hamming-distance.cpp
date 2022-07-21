@@ -5,9 +5,9 @@ public:
         int count = 0;
         while(ans != 0)
         {
-            if(ans%2 != 0)
+            if(ans & 1)
                 count++;
-            ans = ans/2;
+            ans = ans >> 1;
         }
         return count;
     }
