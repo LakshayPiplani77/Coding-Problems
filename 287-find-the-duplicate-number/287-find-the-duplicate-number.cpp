@@ -1,16 +1,17 @@
 class Solution {
 public:
-     int findDuplicate(vector<int>& nums) {
-        
-        vector<bool> found(1 + nums.size(), false);
-        
-        for (int i : nums) {
-            if (found[i])
-                return i;
-            else
-                found[i] = true;
-        } 
-        
-        return -1;
+    int findDuplicate(vector<int>& nums) {
+        unordered_map<int,int> mp;
+        for(int i = 0;i<nums.size();i++)
+        {
+            mp[nums[i]]++;
+        }
+        int ans = -1;
+        for(auto i: mp)
+        {
+            if(i.second > 1)
+                ans = i.first;
+        }
+        return ans;
     }
 };
