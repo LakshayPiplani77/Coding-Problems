@@ -1,16 +1,16 @@
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-        unordered_map<int,int> count;
-        for(int i = 0;i<s.length();i++)
+        unordered_map<char,int> mp;
+        for(int i = 0;i<s.size();i++)
         {
-            count[s[i]]++;
+            mp[s[i]]++;
         }
-        for(int i = 0;i<t.length();i++)
+        for(int i = 0;i<t.size();i++)
         {
-            count[t[i]]--;
+            mp[t[i]]--;
         }
-        for(auto i: count)
+        for(auto i: mp)
         {
             if(i.second != 0)
                 return false;
