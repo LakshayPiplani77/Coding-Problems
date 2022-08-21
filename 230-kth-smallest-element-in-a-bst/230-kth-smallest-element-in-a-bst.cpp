@@ -11,7 +11,7 @@
  */
 class Solution {
 private:
-    void inorder(TreeNode* root,vector<int> &in)
+    void inorder(TreeNode *root,vector<int> &in)
     {
         if(root == NULL)
             return;
