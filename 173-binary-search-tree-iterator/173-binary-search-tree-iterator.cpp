@@ -17,22 +17,20 @@ public:
     }
     
     int next() {
-        TreeNode* temp =  myStack.top();
+        TreeNode *temp = myStack.top();
         myStack.pop();
         pushAll(temp->right);
         return temp->val;
-        
     }
     
     bool hasNext() {
         return !myStack.empty();
     }
     private:
-    void pushAll(TreeNode *node)
+    void pushAll(TreeNode* node)
     {
-        for(;node!= NULL;myStack.push(node),node = node->left);
+        for(;node != NULL; myStack.push(node),node = node->left);
     }
-    
 };
 
 /**
