@@ -8,12 +8,10 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-
-//tortoise hare approach
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
-        ListNode* slow = head, *fast = head;
+        ListNode* slow = head,*fast = head;
         while(fast && fast->next)
         {
             slow = slow->next;
