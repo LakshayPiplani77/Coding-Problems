@@ -10,27 +10,53 @@
  */
 class Solution {
 private:
-    bool checkPalin(vector<int> &ll)
+    ListNode* findMiddle(ListNode* head)
     {
-        int start = 0,end = ll.size()-1;
-        while(start < end)
+        ListNode *slow = head,*fast = head->next;
+        while(fast && fast->next)
         {
-            if(ll[start] != ll[end])
-                return false;
-            start++;
-            end--;
+            slow = slow->next;
+            fast = fast->next->next;
         }
-        return true;
+        return slow;
+    }
+    ListNode* reverse(ListNode* head)
+    {
+        ListNode* curr = head;
+        ListNode* prev = NULL;
+        ListNode* forward;
+        while(curr != NULL)
+        {
+            forward = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = forward;
+        }
+        return prev;
     }
 public:
     bool isPalindrome(ListNode* head) {
-        vector<int> ll;
-        ListNode* temp = head;
-        while(temp != NULL)
+        if(head->next == NULL)
+            return true;
+        //step 1 - find middle
+        ListNode* middle = findMiddle(head);
+        //step 2 - reverse LL after middle
+        ListNode* temp = middle->next;
+        middle->next = reverse(temp);
+        //step 3 - compare both halves
+        ListNode* head1 = head;
+        ListNode* head2 = middle->next;
+        while(head2 != NULL)
         {
-            ll.push_back(temp->val);
-            temp = temp->next;
+            if(head2->val != head1->val)
+                return 0;
+            head1 = head1->next;
+            head2 = head2->next;
         }
-        return checkPalin(ll);
+         //step 4 repeat step2
+            temp = middle->next;
+            middle->next = reverse(temp);
+            return true;
+        
     }
 };
