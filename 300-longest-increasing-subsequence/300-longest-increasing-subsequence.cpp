@@ -1,24 +1,25 @@
-class Solution {
-private:
-int f(int ind,int prev_ind,vector<int> &arr,int n,vector<vector<int>> &dp)
-{
-    if(ind == n)
-        return 0;
-    int len = 0;
-    if(dp[ind][prev_ind+1] != -1)
-        return dp[ind][prev_ind+1];
-    
-    //not take
-    len = 0 + f(ind+1,prev_ind,arr,n,dp);
-    //take
-    if(prev_ind == -1 || arr[ind] > arr[prev_ind])
-        len = max(len,1+f(ind+1,ind,arr,n,dp));
-    return dp[ind][prev_ind+1] = len;
-}
+class Solution {                    
 public:
+	 
     int lengthOfLIS(vector<int>& nums) {
+        
         int n = nums.size();
-         vector<vector<int>> dp(n,vector<int> (n+1,-1));
-    return f(0,-1,nums,n,dp);
-    }
-};
+		
+		// Tabulation
+        vector<vector<int>> dp(n+1, vector<int> (n+1, 0));
+		
+        for(int i=n-1; i>=0; i--)
+            for(int prev = i-1; prev>=-1; prev--)
+            {
+                int not_take = dp[i+1][prev+1];
+                
+                int take = 0;
+                if(prev == -1 || nums[i]>nums[prev])
+                take = 1 + dp[i+1][i+1];
+                
+                dp[i][prev+1] = max(take,not_take);
+            }
+        
+          return dp[0][0];
+		}
+	};
